@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meme Soundboard</title>
+  <style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+header {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+header button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  padding: 0.4rem 0.8rem;
+  background: #00cc66;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  background: #333;
+  justify-content: space-around;
+}
+
+nav button {
+  flex: 1;
+  padding: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+nav button.active {
+  background: #444;
+  border-bottom: 3px solid #00cc66;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 1rem;
+  text-align: center;
+  width: 160px;
+  transition: transform 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.card p {
+  padding: 0.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.hidden {
+  display: none;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+  Meme Soundboard
+  <button onclick="stopAllSounds()" style="float:right; margin-right: 1rem; padding: 0.4rem 0.8rem; background: #00cc66; border: none; color: white; border-radius: 8px; cursor: pointer;">
+    🔇 Stop All
+  </button>
+</header>
+
+  <nav>
+    <button class="active" onclick="showCategory('welcome')">Welcome</button>
+    <button onclick="showCategory('song')">Song</button>
+    <button onclick="showCategory('effect')">Effect</button>
+    <button onclick="showCategory('parole')">Parole</button>
+    <button onclick="showCategory('siren')">Siren</button>
+    <button onclick="showCategory('horror')">Horror</button>
+    <button onclick="showCategory('dead')">Dead</button>
+    <button onclick="showCategory('laugh')">Laugh</button>
+    <button onclick="showCategory('others')">Others</button>
+  </nav>
+
+  <div id="welcome" class="container">
+    <div class="card" onclick="playSound('welcome1')">
+      <img src="images/Universal.png" alt="Welcome 1">
+      <p>Universal intro memes</p>
+    </div>
+    <div class="card" onclick="playSound('welcome2')">
+      <img src="images/bad to the bones.png" alt="Welcome 2">
+      <p>bad to the bones</p>
+    </div>
+    <div class="card" onclick="playSound('welcome3')">
+      <img src="images/Mario kart.jpg" alt="Welcome 3">
+      <p>Mario Kart Start</p>
+    </div>
+    <div class="card" onclick="playSound('welcome4')">
+      <img src="images/cs go.png" alt="Welcome 4">
+      <p>Go Go Go CS:GO</p>
+    </div>
+    <audio id="welcome1" src="sounds/welcome/Universal Intro Meme.mp3"></audio>
+    <audio id="welcome2" src="sounds/welcome/Bad to the bone.mp3"></audio>
+    <audio id="welcome3" src="sounds/welcome/mario kart start.mp3"></audio>
+    <audio id="welcome4" src="sounds/welcome/go go go CS-GO.mp3"></audio>
+  </div>
+
+  <div id="song" class="container hidden">
+    <div class="card" onclick="playSound('song1')">
+      <img src="images/Crazy Frog - Axel F (Official Video).jpg" alt="Random">
+      <p>Crazy Frog - Axel F</p>
+    </div>
+  <div class="card" onclick="playSound('song2')">
+    <img src="images/Despicable Me 2  Minions Banana Song (2013) SNSD TTS.jpg" alt="Random">
+    <p>Minions Banana</p>
+  </div>
+  <div class="card" onclick="playSound('song3')">
+    <img src="images/Tokyo Drift.jpg" alt="Random">
+    <p>Tokyo Drift</p>
+  </div>
+  <div class="card" onclick="playSound('song4')">
+    <img src="images/Dame Tu Cosita.jpg" alt="Random">
+    <p>Dame Tu Cosita</p>
+  </div>
+  <div class="card" onclick="playSound('song5')">
+    <img src="images/I Like To Move It.jpg" alt="Random">
+    <p>I Like To Move It</p>
+  </div>
+  <div class="card" onclick="playSound('song6')">
+    <img src="images/Indian meme song.jpg" alt="Random">
+    <p>Indian meme song</p>
+  </div>
+  <div class="card" onclick="playSound('song7')">
+    <img src="images/J.Geco - Chicken Song.jpg" alt="Random">
+    <p>J.Geco - Chicken Song</p>
+  </div>
+   <div class="card" onclick="playSound('song8')">
+    <img src="images/OIIAI CAT - Mingle (Squid Game 2).jpg" alt="Random">
+    <p>OIIAI CAT - Mingle (Squid Game 2)</p>
+  </div>
+   <div class="card" onclick="playSound('song9')">
+    <img src="images/Skibidi Toilet Full Song Music Video.jpg" alt="Random">
+    <p>Skibidi Toilet</p>
+  </div>
+   <div class="card" onclick="playSound('song10')">
+    <img src="images/W&W - OIIA OIIA (Spinning Cat).jpg" alt="Random">
+    <p>W&W - OIIA OIIA (Spinning Cat)</p>
+  </div>
+  <div class="card" onclick="playSound('song11')">
+    <img src="images/W&W - Tung Tung Tung Sahur (Italian Brainrot).jpg" alt="Random">
+    <p>W&W - Tung Tung Tung Sahur (Italian Brainrot)</p>
+  </div>
+  <audio id="song1" src="sounds/song/Crazy Frog - Axel F (Official Video).mp3"></audio>
+  <audio id="song2" src="sounds/song/Despicable Me 2  Minions Banana Song (2013) SNSD TTS.mp3"></audio>
+  <audio id="song3" src="sounds/song/Duck spinning to Tokyo Drift.mp3"></audio>
+  <audio id="song4" src="sounds/song/El Chombo, Dancing Green Alien - Dame Tu Cosita feat. Cutty Ranks (Official Video) [Ultra Records].mp3"></audio>
+  <audio id="song5" src="sounds/song/I Like To Move It (Original Video)  Madagascar HD.mp3"></audio>
+  <audio id="song6" src="sounds/song/Indian meme song.mp3"></audio>
+  <audio id="song7" src="sounds/song/J.Geco - Chicken Song.mp3"></audio>
+  <audio id="song8" src="sounds/song/OIIAI CAT - Mingle (Squid Game 2).mp3"></audio>
+  <audio id="song9" src="sounds/song/Skibidi Toilet Full Song Music Video.mp3"></audio>
+  <audio id="song10" src="sounds/song/W&W - OIIA OIIA (Spinning Cat).mp3"></audio>
+  <audio id="song11" src="sounds/song/W&W - Tung Tung Tung Sahur (Italian Brainrot).mp3"></audio>
+</div>
+
+<div id="effect" class="container hidden">
+    <div class="card" onclick="playSound('effect1')">
+      <img src="images/Crickets.jpg" alt="effect 1">
+      <p>Crickets</p>
+    </div>
+    <div class="card" onclick="playSound('effect2')">
+      <img src="images/dramatic fart.png" alt="effect 2">
+      <p>dramatic fart</p>
+    </div>
+    <div class="card" onclick="playSound('effect3')">
+      <img src="images/img.png" alt="effect 3">
+      <p>Inception Fog Horn</p>
+    </div>
+    <div class="card" onclick="playSound('effect4')">
+      <img src="images/Spongebob disappointed.png" alt="effect 4">
+      <p>Spongebob disappointed</p>
+    </div>
+    <div class="card" onclick="playSound('effect5')">
+      <img src="images/What The Hell.jpg" alt="effect 5">
+      <p>Ultra Instinct</p>
+    </div>
+    <audio id="effect1" src="sounds/effect/Crickets.mp3"></audio>
+    <audio id="effect2" src="sounds/effect/dramatic fart.mp3"></audio>
+    <audio id="effect3" src="sounds/effect/Inception Fog Horn.mp3"></audio>
+    <audio id="effect4" src="sounds/effect/Spongebob disappointed.mp3"></audio>
+    <audio id="effect5" src="sounds/effect/Ultra Instinct.mp3"></audio>
+  </div>
+
+    <div id="parole" class="container hidden">
+    <div class="card" onclick="playSound('parole1')">
+      <img src="images/fbi open up.jpg" alt="Random">
+      <p>fbi open up</p>
+    </div>
+  <div class="card" onclick="playSound('parole2')">
+    <img src="images/mission failed.jpg" alt="Random">
+    <p>Mission Failed</p>
+  </div>
+  <div class="card" onclick="playSound('parole3')">
+    <img src="images/NUMBER ONE BULLSHIT GUY.jpg" alt="Random">
+    <p>NUMBER ONE BULLSHIT GUY</p>
+  </div>
+  <div class="card" onclick="playSound('parole4')">
+    <img src="images/OMG BRO.png" alt="Random">
+    <p>Oh my god bruh</p>
+  </div>
+  <div class="card" onclick="playSound('parole5')">
+    <img src="images/Oh my god Wow.jpg" alt="Random">
+    <p>Oh my god Wow</p>
+  </div>
+  <div class="card" onclick="playSound('parole6')">
+    <img src="images/What The Hell1.jpg" alt="Random">
+    <p>What The Hell</p>
+  </div>
+  <div class="card" onclick="playSound('parole7')">
+    <img src="images/Why Are You Running.jpg" alt="Random">
+    <p>Why Are You Running</p>
+  </div>
+   <div class="card" onclick="playSound('parole8')">
+    <img src="images/Yep, That's Me.jpg" alt="Random">
+    <p>Yep, That's Me</p>
+  </div>
+  <audio id="parole1" src="sounds/parole/fbi open up.mp3"></audio>
+  <audio id="parole2" src="sounds/parole/Mission Failed.mp3"></audio>
+  <audio id="parole3" src="sounds/parole/NUMBER ONE BULLSHIT GUY.mp3"></audio>
+  <audio id="parole4" src="sounds/parole/Oh my god bruh.mp3"></audio>
+  <audio id="parole5" src="sounds/parole/Oh my god Wow.mp3"></audio>
+  <audio id="parole6" src="sounds/parole/What The Hell.mp3"></audio>
+  <audio id="parole7" src="sounds/parole/Why Are You Running.mp3"></audio>
+  <audio id="parole8" src="sounds/parole/Yep, That's Me.mp3"></audio>
+</div>
+
+
+<div id="siren" class="container hidden">
+    <div class="card" onclick="playSound('siren1')">
+      <img src="images/img.png" alt="Random">
+      <p>Ambulance Siren Wailing</p>
+    </div>
+  <div class="card" onclick="playSound('siren2')">
+    <img src="images/img.png" alt="Random">
+    <p>Danger Alarm</p>
+  </div>
+  <audio id="siren1" src="sounds/siren/Ambulance Siren Wailing.mp3"></audio>
+  <audio id="siren2" src="sounds/siren/Danger Alarm.mp3"></audio>
+</div>
+
+<div id="horror" class="container hidden">
+    <div class="card" onclick="playSound('horror1')">
+      <img src="images/Creepy Little Girl Talking.jpg" alt="horror 1">
+      <p>Creepy Little Girl Talking</p>
+    </div>
+    <div class="card" onclick="playSound('horror2')">
+      <img src="images/Ghost Sound.png" alt="horror 2">
+      <p>Ghost Sound</p>
+    </div>
+    <div class="card" onclick="playSound('horror3')">
+      <img src="images/Knocking on Window.jpg" alt="horror 3">
+      <p>Knocking on Window</p>
+    </div>
+    <div class="card" onclick="playSound('horror4')">
+      <img src="images/Scary Crying Ghost.png" alt="horror 4">
+      <p>Scary Crying Ghost</p>
+    </div>
+    <audio id="horror1" src="sounds/horror/Creepy Little Girl Talking.mp3"></audio>
+    <audio id="horror2" src="sounds/horror/Ghost Sound.mp3"></audio>
+    <audio id="horror3" src="sounds/horror/Knocking on Window.mp3"></audio>
+    <audio id="horror4" src="sounds/horror/Scary Crying Ghost.mp3"></audio>
+  </div>
+
+
+<div id="dead" class="container hidden">
+    <div class="card" onclick="playSound('dead1')">
+      <img src="images/Call an Ambulance but not for me.png" alt="dead 1">
+      <p>Call an Ambulance but not for me</p>
+    </div>
+    <div class="card" onclick="playSound('dead2')">
+      <img src="images/GTA V Wasted.png" alt="dead 2">
+      <p>GTA V Wasted</p>
+    </div>
+    <div class="card" onclick="playSound('dead3')">
+      <img src="images/Heavenly Music.jpg" alt="dead 3">
+      <p>Heavenly Music</p>
+    </div>
+    <div class="card" onclick="playSound('dead4')">
+      <img src="images/look At This Dude.jpg" alt="dead 4">
+      <p>Look At This Dude</p>
+    </div>
+    <div class="card" onclick="playSound('dead5')">
+      <img src="images/Oh my god.jpg" alt="dead 5">
+      <p>Oh my god</p>
+    </div>
+    <audio id="dead1" src="sounds/dead/Call an Ambulance but not for me.mp3"></audio>
+    <audio id="dead2" src="sounds/dead/GTA V Wasted.mp3"></audio>
+    <audio id="dead3" src="sounds/dead/Heavenly Music.mp3"></audio>
+    <audio id="dead4" src="sounds/dead/Look At This Dude.mp3"></audio>
+    <audio id="dead5" src="sounds/dead/Oh my god.mp3"></audio>
+  </div>
+
+
+<div id="laugh" class="container hidden">
+    <div class="card" onclick="playSound('laugh1')">
+      <img src="images/Cat laughing meme.jpg" alt="laugh 1">
+      <p>Cat laughing meme</p>
+    </div>
+    <div class="card" onclick="playSound('laugh2')">
+      <img src="images/El Risitas Laugh Meme.jpg" alt="laugh 2">
+      <p>El Risitas Laugh</p>
+    </div>
+    <div class="card" onclick="playSound('laugh3')">
+      <img src="images/meow hahahahaha.jpg" alt="laugh 3">
+      <p>Meow Hahahahaha</p>
+    </div>
+    <div class="card" onclick="playSound('laugh4')">
+      <img src="images/Mutahar Laugh Animation.jpg" alt="laugh 4">
+      <p>Mutahar Laugh Animation</p>
+    </div>
+    <audio id="laugh1" src="sounds/laugh/Cat laughing meme.mp3"></audio>
+    <audio id="laugh2" src="sounds/laugh/El Risitas Laugh Meme template (5  Sec).mp3"></audio>
+    <audio id="laugh3" src="sounds/laugh/meow hahahahaha.mp3"></audio>
+    <audio id="laugh4" src="sounds/laugh/Mutahar Laugh Animation.mp3"></audio>
+  </div>
+</div>
+
+<div id="others" class="container hidden">
+      <div class="card" onclick="playSound('others1')">
+      <img src="images/blablabla.png" alt="others 1">
+      <p>blablabla</p>
+    </div>
+    <div class="card" onclick="playSound('others2')">
+      <img src="images/haaaa_ahhhh.jpg" alt="others 2">
+      <p>haaaaa aaaah</p>
+    </div>
+    <div class="card" onclick="playSound('others3')">
+      <img src="images/john cena.jpg" alt="others 3">
+      <p>John Cena</p>
+    </div>
+    <div class="card" onclick="playSound('others4')">
+      <img src="images/squid game music.png" alt="others 4">
+      <p>Squid Game Music</p>
+    </div>
+    <div class="card" onclick="playSound('others5')">
+      <img src="images/laugh1.jpg" alt="others 5">
+      <p>SUIII</p>
+    </div>
+     <div class="card" onclick="playSound('others6')">
+      <img src="images/The Screaming Sheep.jpg" alt="others 6">
+      <p>The Screaming Sheep</p>
+    </div>
+    <audio id="others1" src="sounds/other/blablabla blebleble blublublu.mp3"></audio>
+    <audio id="others2" src="sounds/other/haaaaa aaaah.mp3"></audio>
+    <audio id="others3" src="sounds/other/john cena.mp3"></audio>
+    <audio id="others4" src="sounds/other/squid game music.mp3"></audio>
+    <audio id="others5" src="sounds/other/SUIII.mp3"></audio>
+    <audio id="others6" src="sounds/other/The Screaming Sheep.mp3"></audio>
+  </div>
+</div>
+
+  <script>
+    function playSound(id) {
+      const audio = document.getElementById(id);
+      audio.currentTime = 0; // Restart sound if it's already playing
+      audio.play();
+    }
+
+    function showCategory(cat) {
+      const sections = ['welcome', 'song', 'effect', 'parole', 'siren', 'horror', 'dead', 'laugh', 'others'];
+      sections.forEach(s => {
+        document.getElementById(s).classList.add('hidden');
+      });
+      document.getElementById(cat).classList.remove('hidden');
+
+      // Update active tab
+      const buttons = document.querySelectorAll("nav button");
+  buttons.forEach(btn => btn.classList.remove("active"));
+  window.event.target.classList.add("active");
+    }
+    function stopAllSounds() {
+  const allAudio = document.querySelectorAll("audio");
+  allAudio.forEach(audio => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
+}
+  </script>
+</body>
+</html>
